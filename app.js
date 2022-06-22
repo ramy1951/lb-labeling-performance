@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const annotatorMetricsRouter = require("./router/annotatorMetrics");
 const event = require("./router/event");
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.param("email", (req, res, next, email) => {
     req.user_email = email;
@@ -23,7 +23,7 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.use("/annotator-metrics/:email", annotatorMetricsRouter);
+app.use("/metrics/:email", annotatorMetricsRouter);
 app.use("/event", event);
 app.all("/", (req, res) => res.send("yes"));
 

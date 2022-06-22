@@ -1,8 +1,6 @@
 const express = require("express");
-const crypto = require("crypto");
-const { createLabel } = require("../orm");
+const { createLabel } = require("../controller/createLabel");
 const router = express.Router();
-const verifyHmac256 = require("verify-hmac-sha");
 
 router.post("/newLabel", (req, res) => {
     console.log("newLabel");
